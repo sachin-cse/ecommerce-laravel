@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AdminController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,4 +26,13 @@ Route::middleware([
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
+});
+
+// admin route
+
+Route::group(['prefix'=>'admin'], function(){
+    Route::get('/', [AdminController::class, 'index'])->name('admin.login.index');
+    Route::post('/login', [AdminController::class, 'Adminlogin'])->name('admin.login');
+    Route::get('/dashboard', [AdminController::class, 'Admindashboard'])->name('admin.dashboard');
+
 });

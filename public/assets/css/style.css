@@ -1,0 +1,7 @@
+.error{
+    color:red;
+}
+
+au-input au-input--full{
+    color:black !important;
+}
